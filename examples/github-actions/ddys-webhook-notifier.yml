@@ -1,0 +1,25 @@
+name: DDYS Webhook Notifier
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Restore notifier state
+        uses: actions/cache@v4
+        with:
+          path: .ddys-notifier-state.json
+          key: ddys-webhook-notifier-state
+      - name: Run notifier
+        env:
+          DDYS_NOTIFY_SOURCES: latest,hot
+          DDYS_NOTIFY_MAX_ITEMS: "8"
+          DDYS_NOTIFY_DISCORD_WEBHOOK_URL: ${{ secrets.DDYS_NOTIFY_DISCORD_WEBHOOK_URL }}
+        run: npx ddys-webhook-notifier run --state-file .ddys-notifier-state.json

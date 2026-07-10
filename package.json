@@ -1,0 +1,87 @@
+{
+  "name": "ddys-webhook-notifier",
+  "version": "0.1.0",
+  "description": "Scheduled webhook notifier for the DDYS API with dedupe, retries, and multi-platform delivery.",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/ddysiodev/ddys-webhook-notifier",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddysiodev/ddys-webhook-notifier.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ddysiodev/ddys-webhook-notifier/issues"
+  },
+  "keywords": [
+    "ddys",
+    "webhook",
+    "notifier",
+    "cloudflare-workers",
+    "github-actions",
+    "discord",
+    "telegram",
+    "slack",
+    "dingtalk",
+    "wecom",
+    "lark"
+  ],
+  "bin": {
+    "ddys-webhook-notifier": "./bin/ddys-webhook-notifier.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./config": {
+      "types": "./index.d.ts",
+      "import": "./src/config.js"
+    },
+    "./client": {
+      "types": "./index.d.ts",
+      "import": "./src/client.js"
+    },
+    "./dedupe": {
+      "types": "./index.d.ts",
+      "import": "./src/dedupe.js"
+    },
+    "./format": {
+      "types": "./index.d.ts",
+      "import": "./src/format.js"
+    },
+    "./targets": {
+      "types": "./index.d.ts",
+      "import": "./src/targets.js"
+    },
+    "./worker": {
+      "types": "./index.d.ts",
+      "import": "./src/worker.js"
+    },
+    "./node-state": {
+      "types": "./index.d.ts",
+      "import": "./src/node-state.js"
+    }
+  },
+  "main": "./src/index.js",
+  "types": "./index.d.ts",
+  "files": [
+    "bin",
+    "src",
+    "examples",
+    "index.d.ts",
+    "README.md",
+    "README.en.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "scripts": {
+    "check": "node tools/check.mjs",
+    "test": "node tools/check.mjs && node --test tests/*.test.mjs"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

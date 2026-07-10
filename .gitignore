@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+package/
+.wrangler/
+.dev.vars
+.env
+.env.*
+!.env.example
+*.log
+*.tmp
+*.cache
+*.tgz
+*.zip
+.ddys-notifier-state.json

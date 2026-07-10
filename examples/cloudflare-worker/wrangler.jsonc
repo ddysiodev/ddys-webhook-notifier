@@ -1,0 +1,21 @@
+{
+  "name": "ddys-webhook-notifier",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-10",
+  "compatibility_flags": ["nodejs_compat"],
+  "triggers": {
+    "crons": ["*/15 * * * *"]
+  },
+  "vars": {
+    "DDYS_NOTIFY_API_BASE": "https://ddys.io/api/v1",
+    "DDYS_NOTIFY_PUBLIC_BASE": "https://ddys.io",
+    "DDYS_NOTIFY_SOURCES": "latest,hot",
+    "DDYS_NOTIFY_MAX_ITEMS": "8"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "DDYS_NOTIFY_KV",
+      "id": "replace-with-your-kv-namespace-id"
+    }
+  ]
+}
